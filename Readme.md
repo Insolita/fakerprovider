@@ -8,6 +8,7 @@ Faker Shop-data provider (Russian only)
  $faker->addProvider(insolita\faker\ShopProvider::class);
 
  $faker->productUnit();
+ $faker->productModel();
  $faker->productSize2d();
  $faker->productSize3d();
  $faker->productTitle();
@@ -15,4 +16,5 @@ Faker Shop-data provider (Russian only)
  $faker->productMaterial();
  $faker->productAttribute();
  $faker->productTrademark();
+
 ```

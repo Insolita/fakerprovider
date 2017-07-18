@@ -1,6 +1,6 @@
 {
     "name": "insolita/fakerprovider",
-    "description": "Faker Provider for Shop - product titles, units,sizes, categories, attributes, trademarks",
+    "description": "Faker Provider for Russian Shop - product titles, models, materials,units,sizes, categories, attributes, trademarks",
     "type": "library",
     "keywords": ["faker"],
     "license": "MIT",

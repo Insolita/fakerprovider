@@ -9,6 +9,58 @@ use Faker\Provider\Base;
 
 class ShopProvider extends Base
 {
+    protected static $size2d
+        = [
+            '%#x%#',
+            '%##x%##',
+            '%x%',
+            '%x%#',
+            '%#x%%%',
+            '%##x%#',
+            '%#x%',
+        ];
+    
+    protected static $size3d
+        = [
+            '%##x%##x%##',
+            '%#x%#x%#',
+            '%##x%#x%#',
+            '%##x%#x%##',
+            '%#x%#x%##',
+        ];
+    
+    protected static $model
+        = [
+            '??-#####',
+            '??###',
+            '??-#####?',
+            '??-#####-?',
+            '??-#########?',
+            '???-#####',
+            '???-#####??',
+            '??##?',
+            '??##',
+            '?-##-###?',
+        ];
+    
+    protected static $units
+        = [
+            'см',
+            'мм',
+            'дм',
+            'м2',
+            'м3',
+            'г',
+            'кг',
+            'карат',
+            'шт.',
+            'ед.',
+            'уп.',
+            'бут.',
+            'л',
+            'мл',
+        ];
+    
     protected static $categories
         = [
             'Средства для коррекции фигуры',
@@ -410,25 +462,81 @@ class ShopProvider extends Base
             "Количество светодиодов",
         ];
     
+    protected static $tm
+        = [
+            'Euro','MINILAND','ТД Абрико','GOOD FOOD','Grand кожгалантерея','COLIBRI','Happy House','Liko Baby','Giorgio Armani','Славянка','ЗОЛОТО МОРЕЙ','Noordi','Multicolor','Kinder','REHAU','TUK','X-Bond Parfums','Willmark','Tee-Way','Rio Fiore','Rolsen','Sumkov','Marc Bernes','Mamadoma','ELECTROLUX','Gren tea','Bristol','AIWA','Др.Клин','Black One','Luxor','Золотой петушок','GALA','Integra-art','Чистая линия','Trimm','LINGLONG','WELLA','Betty Barclay','Effre','Целебные травы','ROOMERS','Экстрол','Марс','Cosmetic series','Anmax','Nouba','Dr.Brown’s','Дивидик','Аптечная линия','Дельфин','Pedigree','PENHUABI','JAGUAR','Росмэн','PRIDE','PreVital','B&G','VERNEL','Pixys','Askona','Moschino','DISNEY','Nikai','TIRALANA','Angelcare','Zoggs','Azeri-Grand','FIORY','ВудЭкспорт','SUNNEX','AQUATECH','Transformers','Абрис Арт','Luce & Regalo','Lancome','Silicon Power','AROMA DE HABANA','Доктор ZOO','AVS','Jean Baptiste','Schauma','Cacharel','VITALITY','GSN Electronic Company Ltd','Сайвер','Бумландия','Книжный Дом','ООО "Кипер"','Калинка','AOS','Plastiflora & Florima','KISLIS','Тайга','Мир вольфрама','Olivia Garden','Попкина радость','ДЕНИ','Flox','ZhikuBao','Swarovski Elements','Milka','Jimmy CAT, Chaoran','Nokia','KYOCERA','Art-Tech','Белая роза','SUNTEK','Logik','AVANT GARDERO','Riko','CeloPharm GmbH','Четвероногий Гурман','Orange Toys','ЦЕНТРПОЛИГРАФ','Caffe Poli','Эвантюэль','Nature Line','КРУАЗЕТТ','Zhengzhou Homepaint Woodcarving Co','EUROTEX MOTO','DELUCCI','Самоделкин','Авангард фабрика печенья','Finn-Tack','Clearasil','Lovetrade','Omsa','Фитодар',
+'Русский Дух','Sunflower','Huppa','BLISS','Green Toys','Сима-ленд Спорт','John Frieda','Zippo','Серп и Молот','Green Island','J. Michael','Ling Long','Славянский текстиль','Bvlgari','Мистер Чистер','Aquafresh','Playboy','XIN SHENG','Оскольская керамика','Garnier'
+        ];
     
+    /**
+     * @return string
+     */
     public function productCategory()
     {
         return static::randomElement(static::$categories);
     }
     
+    /**
+     * @return string
+     */
     public function productTitle()
     {
         return static::randomElement(static::$products);
     }
     
+    /**
+     * @return string
+     */
     public function productMaterial()
     {
         return static::randomElement(static::$materials);
     }
     
+    /**
+     * @return mixed
+     */
     public function productAttribute()
     {
         return static::randomElement(static::$attributes);
     }
     
+    /**
+     * @return string
+     */
+    public function productUnit()
+    {
+        return static::randomElement(static::$units);
+    }
+    
+    /**
+     * @return string
+     */
+    public function productTrademark()
+    {
+        return static::randomElement(static::$tm);
+    }
+    
+    /**
+     * @return string
+     */
+    public function productSize2d()
+    {
+        return static::numerify(static::randomElement(static::$size2d));
+    }
+    
+    /**
+     * @return string
+     */
+    public function productSize3d()
+    {
+        return static::numerify(static::randomElement(static::$size3d));
+    }
+    
+    /**
+     * @return string
+     */
+    public function productModel()
+    {
+        return strtoupper(static::bothify(static::randomElement(static::$model)));
+    }
 }
